@@ -1,0 +1,88 @@
+XLISP-PLUS version 3.05 
+Portions Copyright (c)1988, by David Betz. 
+Modified by Thomas Almy and others. 
+> (CAR '((1 . 2). (3 . 4)))
+(1 . 2)
+> (CDR '((1 . 2). (3 . 4)))
+(3 . 4)
+>
+>
+>
+> (CAR '(1 2 3 4 5))
+1
+> (CDR '(1 2 3 4 5))
+(2 3 4 5)
+>
+>
+>
+> (CAR '(1 . (2 . (3 . (4 . (5 . NIL))))))
+1
+> (CDR '(1 . (2 . (3 . (4 . (5 . NIL))))))
+(2 3 4 5)
+>
+>
+>
+> (CDR '(1 . (2 . (3 . (4 . (5 . NIL))))))
+(2 3 4 5)
+> (CDR '(1 . ((A . (B . nil)). (3 . (4 . (5 . NIL))))))
+((A B) 3 4 5)
+>
+>
+>
+> (CAR '(1 . (2 . (3 . (4 . (5 . NIL))))))
+1 
+> (CDR '(1 . (2 . (3 . (4 . (5 . NIL))))))
+(2 3 4 5)
+>
+> (CAR (CDR '(1 . (2 . (3 . (4 . (5 . NIL)))))))
+2
+> (CADR '(1 . (2 . (3 . (4 . (5 . NIL))))))
+2
+> (CDR (CDR '(1 . (2 . (3 . (4 . (5 . NIL)))))))
+(3 4 5)
+> (CDDR '(1 . (2 . (3 . (4 . (5 . NIL))))))
+(3 4 5)
+>
+> (CAR (CDR (CDR '(1 . (2 . (3 . (4 . (5 . NIL))))))))
+3
+> (CADDR '(1 . (2 . (3 . (4 . (5 . NIL))))))
+3 
+> (CDR (CDR (CDR '(1 . (2 . (3 . (4 . (5 . NIL))))))))
+(4 5)
+> (CDDDR '(1 . (2 . (3 . (4 . (5 . NIL))))))
+(4 5)
+>
+> (CAR (CDR (CDR (CDR '(1 . (2 . (3 . (4 . (5 . NIL)))))))))
+4
+> (CADDDR '(1 . (2 . (3 . (4 . (5 . NIL))))))
+4 
+> (CDR (CDR (CDR (CDR '(1 . (2 . (3 . (4 . (5 . NIL)))))))))
+(5)
+> (CDDDDR '(1 . (2 . (3 . (4 . (5 . NIL))))))
+(5)
+>
+> (CAR (CDR (CDR (CDR (CDR '(1 . (2 . (3 . (4 . (5 . NIL))))))))))
+5
+> (CADDDDR '(1 . (2 . (3 . (4 . (5 . NIL))))))
+error: unbound function - CADDDDR
+> (CAR (CDDDDR '(1 . (2 . (3 . (4 . (5 . NIL)))))))
+5 
+> (CADR (CDDDR '(1 . (2 . (3 . (4 . (5 . NIL)))))))
+5 
+> (CDR (CDR (CDR (CDR (CDR '(1 . (2 . (3 . (4 . (5 . NIL))))))))))
+NIL 
+> (CDDDDDR '(1 . (2 . (3 . (4 . (5 . NIL))))))
+error: unbound function - CADDDDR
+> (CDR (CDDDDR '(1 . (2 . (3 . (4 . (5 . NIL)))))))
+NIL 
+> (CDDR (CDDDR '(1 . (2 . (3 . (4 . (5 . NIL)))))))
+NIL
+>
+>
+>
+> (CADR '(1 . ((a . (b . nil)). (3 . (4 . (5 . NIL))))))
+(A B)
+> (CDADR '(1 . ((a . (b . nil)). (3 . (4 . (5 . NIL))))))
+(B)
+> (CADADR '(1 . ((a . (b . nil)). (3 . (4 . (5 . NIL))))))
+B 

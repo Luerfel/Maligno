@@ -1,0 +1,7 @@
+(DEFUN qtsElems (L)
+    (COND ((ATOM L) 0)
+          ('T (1+ (qtsElems (CDR L))))))
+---------------------
+> (qtsElems '(1 (2 3) 4))
+3
+> 

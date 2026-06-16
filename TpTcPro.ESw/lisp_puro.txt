@@ -1,0 +1,18 @@
+LISP não é case sensitive
+
+LISP puro (7 funções liberadas para uso nas aulas)
+CAR
+CDR (pronuncia-se coulder)
+CONS
+ATOM
+EQ
+1+
+1-
+
+Para chamar 1 função, escrevemos ENTRE PARÊNTESES,
+o nome dela e seus parâmetros, tudo separado por
+espaço em branco.
+
+Constantes não numéricas sempre devem se escrita
+precedidas por um apóstrofo, '; números podem ou
+não ser precedidos por um apóstrofo. 
