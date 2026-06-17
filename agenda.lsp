@@ -1,6 +1,12 @@
 ;; Trabalho de Lisp - Agenda
 ;; Dupla: Beatriz Kamien Tehzy (RA: 25007147) e Matheus Augusto Mendonça (RA: 22011027)
 
+;; Verifica se um elemento pertence a lista
+(DEFUN membro (elem lista)
+  (COND ((ATOM lista) 'NIL)
+        ((EQ (CAR lista) elem) 'T)
+        ('T (membro elem (CDR lista)))))
+
 ;; Adiciona um elemento no final da lista
 (DEFUN add-fim (elem lista)
   (COND ((ATOM lista) (CONS elem 'NIL))
@@ -12,11 +18,12 @@
         ((EQ (CAR lista) elem) (CDR lista))
         ('T (CONS (CAR lista) (remover-elem elem (CDR lista))))))
 
-;; Inclui contato novo ou insere telefone se o contato ja existe
+;; Inclui contato novo ou insere telefone se o contato ja existe (sem duplicar telefone)
 (DEFUN incluir (agenda contato)
   (COND ((ATOM agenda) (CONS contato 'NIL))
         ((EQ (CAR (CAR agenda)) (CAR contato))
-         (CONS (add-fim (CAR (CDR contato)) (CAR agenda)) (CDR agenda)))
+         (COND ((membro (CAR (CDR contato)) (CAR agenda)) agenda)
+               ('T (CONS (add-fim (CAR (CDR contato)) (CAR agenda)) (CDR agenda)))))
         ('T (CONS (CAR agenda) (incluir (CDR agenda) contato)))))
 
 ;; Exclui um telefone. Se for o unico telefone, remove o contato todo da agenda.
