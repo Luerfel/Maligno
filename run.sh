@@ -16,8 +16,7 @@ fi
 
 export LD_LIBRARY_PATH="$CLISP_ROOT/usr/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH:-}"
 
-"$CLISP_RUN" -q -q \
+(printf "(menu)\n"; cat) | "$CLISP_RUN" -q -q \
   -B "$CLISP_LIB" \
   -M "$CLISP_MEM" \
-  -i "$ROOT_DIR/agenda.lsp" \
-  -x "(menu)"
+  -i "$ROOT_DIR/agenda.lsp"
